@@ -85,6 +85,14 @@ class Void:
         except Exception as e:
             log(f"[ERR] Problem with calculator: {e}")
 
+    def credit(self):
+        log("[INF] MADE BY THEO KERSHAW")
+        if dpg.does_item_exist("cred_window"):  
+            dpg.focus_item("cred_window")     
+            return    
+        with dpg.window(label="Credits", width=100, height=150, tag="cred_window", on_close=lambda s: dpg.delete_item(s)):
+                    dpg.add_button(label="Theo Kerhaw")
+
 if __name__ == "__main__":
     void = Void()
 
@@ -96,6 +104,7 @@ if __name__ == "__main__":
         dpg.add_button(label="Telescope", callback=lambda: void.telescope())
         dpg.add_button(label="System Processes", callback=lambda: void.system_htop())
         dpg.add_button(label="Calculator", callback=lambda: void.calculator())
+        dpg.add_button(label="Credits", callback=lambda: void.credit())
 
     dpg.setup_dearpygui()
     dpg.show_viewport()
