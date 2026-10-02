@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
     with dpg.window(label="Void", width=300, height=120):
         dpg.add_button(label="Satellites", callback=lambda: threading.Thread(target=void.satellite, daemon=True).start())
-        dpg.add_button(label="Telescope", callback=lambda: threading.Thread(target=void.telescope, daemon=True).start())
+        dpg.add_button(label="Virtual Telescope", callback=lambda: threading.Thread(target=void.telescope, daemon=True).start())
         dpg.add_button(label="System Processes", callback=lambda: threading.Thread(target=void.system_htop, daemon=True).start())
         dpg.add_button(label="Calculator", callback=lambda: threading.Thread(target=void.calculator, daemon=True).start())
         dpg.add_button(label="Credits", callback=lambda: threading.Thread(target=void.credit, daemon=True).start())
