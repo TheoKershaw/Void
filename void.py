@@ -97,7 +97,7 @@ if __name__ == "__main__":
     void = Void()
 
     dpg.create_context()
-    dpg.create_viewport(title="Void", width=300, height=450)
+    dpg.create_viewport(title="Void", width=800, height=480)
 
     with dpg.window(label="Void", width=300, height=120):
         dpg.add_button(label="Satellites", callback=lambda: threading.Thread(target=void.satellite, daemon=True).start())
