@@ -100,11 +100,11 @@ if __name__ == "__main__":
     dpg.create_viewport(title="Void", width=300, height=450)
 
     with dpg.window(label="Void", width=300, height=120):
-        dpg.add_button(label="Satellites", callback=lambda: void.satellite())
-        dpg.add_button(label="Telescope", callback=lambda: void.telescope())
-        dpg.add_button(label="System Processes", callback=lambda: void.system_htop())
-        dpg.add_button(label="Calculator", callback=lambda: void.calculator())
-        dpg.add_button(label="Credits", callback=lambda: void.credit())
+        dpg.add_button(label="Satellites", callback=lambda: threading.Thread(target=void.satellite, daemon=True).start())
+        dpg.add_button(label="Telescope", callback=lambda: threading.Thread(target=void.telescope, daemon=True).start())
+        dpg.add_button(label="System Processes", callback=lambda: threading.Thread(target=void.system_htop, daemon=True).start())
+        dpg.add_button(label="Calculator", callback=lambda: threading.Thread(target=void.calculator, daemon=True).start())
+        dpg.add_button(label="Credits", callback=lambda: threading.Thread(target=void.credit, daemon=True).start())
 
     dpg.setup_dearpygui()
     dpg.show_viewport()
